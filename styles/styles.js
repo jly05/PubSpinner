@@ -7,10 +7,11 @@ exports.headers = StyleSheet.create({
 })
 
 exports.containers = StyleSheet.create({
-  central: {
+  outer: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })
