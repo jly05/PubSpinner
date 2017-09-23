@@ -10,6 +10,8 @@ const App = TabNavigator(
     List: {
       screen: Lists
     }
+  }, {
+    tabBarPosition: 'bottom'
   }
 )
 
