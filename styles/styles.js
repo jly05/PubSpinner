@@ -27,3 +27,14 @@ exports.borders = StyleSheet.create({
     borderWidth: 1
   }
 })
+
+exports.custom = StyleSheet.create({
+  addButton: {
+    backgroundColor: '#f00',
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
