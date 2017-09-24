@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native'
 
 exports.headers = StyleSheet.create({
   h1: {
+    fontWeight: 'bold',
+    fontSize: 28
+  },
+  h3: {
     fontWeight: 'bold'
   }
 })
@@ -13,5 +17,13 @@ exports.containers = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center'
+  }
+})
+
+exports.borders = StyleSheet.create({
+  solidBlackOne: {
+    borderColor: '#000',
+    borderStyle: 'solid',
+    borderWidth: 1
   }
 })
