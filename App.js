@@ -1,18 +1,26 @@
 import Spinner from './components/Spinner'
-import Lists from './components/Lists'
+import ListsPage from './components/ListsPage/ListsPage'
 import { TabNavigator } from 'react-navigation'
 
-var App = TabNavigator(
-  {
-    Spinner: {
-      screen: Spinner
-    },
-    List: {
-      screen: Lists
-    }
-  }, {
-    tabBarPosition: 'bottom'
+const App = TabNavigator({
+  Spinner: {
+    screen: Spinner
+  },
+  Lists: {
+    screen: ListsPage
   }
-)
+}, {
+  tabBarPosition: 'bottom',
+  animationEnabled: true,
+  tabBarOptions: {
+    indicatorStyle: {
+      borderBottomColor: '#fff',
+      borderBottomWidth: 2
+    },
+    style: {
+      backgroundColor: '#2185d0'
+    }
+  }
+})
 
 export default App

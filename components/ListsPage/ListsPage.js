@@ -1,7 +1,9 @@
 import React from 'react'
 import { View, Text, StatusBar, Dimensions, ScrollView, TouchableOpacity } from 'react-native'
-import { containers, headers, custom } from '../styles/styles'
+import { containers, headers, custom } from '../../styles/styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import ListsPageItem from './ListsPageItem'
+import ListsOfLists from './ListOfLists'
 
 class Lists extends React.Component {
   constructor () {
@@ -11,11 +13,20 @@ class Lists extends React.Component {
 
     this.state = {
       currentList: null,
-      lists: []
+      // lists: []
+      lists: ['a', 'b', 'c']
     }
   }
 
   setCurrentList () {
+
+  }
+
+  addListItem () {
+
+  }
+
+  viewListDetails () {
 
   }
 
@@ -26,6 +37,10 @@ class Lists extends React.Component {
       marginTop: StatusBar.currentHeight + (height * 0.02),
       marginBottom: (height * 0.05)
     }
+    var addButtonContainerStyle = {
+      width: 0.8 * width,
+      alignItems: 'flex-end'
+    }
     return (
       <View style={marginStyle}>
         <View style={containers.outer}>
@@ -33,16 +48,15 @@ class Lists extends React.Component {
             <Text style={headers.h1}>Pub Spinner</Text>
           </View>
           <ScrollView className='lists'>
-            {this.state.lists.map((list, index) => (
-              <Text className='indent' key={index}>list.name</Text>
-              ))
-            }
+            <ListsOfLists lists={this.state.lists} />
           </ScrollView>
-          <TouchableOpacity>
-            <View className='addButton' style={custom.addButton}>
-              <Icon name='plus' size={15} color='#fff' />
-            </View>
-          </TouchableOpacity>
+          <View style={addButtonContainerStyle}>
+            <TouchableOpacity>
+              <View className='addButton' style={custom.addButton}>
+                <Icon name='plus' size={15} color='#fff' />
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     )
