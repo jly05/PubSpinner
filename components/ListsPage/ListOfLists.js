@@ -1,118 +1,71 @@
 import React from 'react'
-import { View, Text, TouchableWithoutFeedback } from 'react-native'
-import { RadioButtons } from 'react-native-radio-buttons'
+import PropTypes from 'prop-types'
+import { View, Text, TouchableWithoutFeedback, Dimensions, ScrollView } from 'react-native'
 
 class ListOfLists extends React.Component {
   constructor () {
     super()
-    this.renderCheckList = this.renderCheckList.bind(this)
+    this.renderListItem = this.renderListItem.bind(this)
     this.state = {}
   }
 
-  renderCheckList () {
-    const options = this.props.lists
-
-    function setSelectedOption (checkListOption) {
-      this.setState({
-        checkListOption
-      })
+  renderListItem (list, index) {
+    const textStyle = {
+      paddingTop: 10,
+      paddingBottom: 10,
+      color: 'black',
+      flex: 1,
+      fontSize: 14
     }
-
-    function renderOption (option, selected, onSelect, index) {
-      const textStyle = {
-        paddingTop: 10,
-        paddingBottom: 10,
-        color: 'black',
-        flex: 1,
-        fontSize: 14
-      }
-      const baseStyle = {
-        flexDirection: 'row'
-      }
-      var style
-      var checkMark
-
-      if (index > 0) {
-        style = [baseStyle, {
-          borderTopColor: '#eeeeee',
-          borderTopWidth: 1
-        }]
-      } else {
-        style = baseStyle
-      }
-
-      if (selected) {
-        checkMark = <Text style={{
-          flex: 0.1,
-          color: '#007AFF',
-          fontWeight: 'bold',
-          paddingTop: 8,
-          fontSize: 20,
-          alignSelf: 'center'
-        }}>✓</Text>
-      }
-
-      return (
-        <TouchableWithoutFeedback onPress={onSelect} key={index}>
-          <View style={style}>
-            <Text style={textStyle}>{option}</Text>
-            {checkMark}
-          </View>
-        </TouchableWithoutFeedback>
-      )
+    const baseStyle = {
+      flexDirection: 'row'
     }
+    var style
+    var checkMark
 
-    function renderContainer (options) {
-      return (
-        <View style={{
-          backgroundColor: 'white',
-          paddingLeft: 20,
-          borderTopWidth: 1,
-          borderTopColor: '#cccccc',
-          borderBottomWidth: 1,
-          borderBottomColor: '#cccccc'
-        }}>
-          {options}
-        </View>
-      )
+    if (index > 0) {
+      style = [baseStyle, {
+        borderTopColor: '#eeeeee',
+        borderTopWidth: 1
+      }]
+    } else {
+      style = baseStyle
     }
-
+    if (list._id === this.props.currentList) {
+      checkMark = <Text style={{
+        flex: 0.1,
+        color: '#007AFF',
+        fontWeight: 'bold',
+        fontSize: 20,
+        alignSelf: 'center'
+      }}>✓</Text>
+    }
     return (
-      <View style={{flex: 1}}>
-        <View style={{marginTop: 10, backgroundColor: 'white'}}>
-          <Text style={{padding: 20, fontWeight: 'bold'}}>VerticalSelect</Text>
-
-          <View style={{
-            backgroundColor: '#eeeeee',
-            paddingTop: 5,
-            paddingBottom: 5
-          }}>
-            <Text style={{
-              color: '#555555',
-              paddingLeft: 20,
-              marginBottom: 5,
-              marginTop: 5,
-              fontSize: 12
-            }}>ACCENT</Text>
-            <RadioButtons
-              options={options}
-              onSelection={setSelectedOption.bind(this)}
-              selectedOption={this.state.checkListOption}
-              renderOption={renderOption}
-              renderContainer={renderContainer}
-            />
-          </View>
-          <Text style={{
-            margin: 20
-          }}>Selected accent: {this.state.checkListOption || 'none'}</Text>
+      <TouchableWithoutFeedback onPress={() => this.props.onSelect(list._id)} key={index}>
+        <View style={style}>
+          <Text style={textStyle}>{list.name}</Text>
+          {checkMark}
         </View>
-      </View>)
+      </TouchableWithoutFeedback>
+    )
   }
 
   render () {
-    console.log(this.props.lists)
-    return this.renderCheckList()
+    let width = Dimensions.get('window').width
+    return (
+      <ScrollView style={{flex: 1, width: 0.8 * width}}>
+        { this.props.lists.map((list, index) => (
+          this.renderListItem(list, index)
+        ))}
+      </ScrollView>
+    )
   }
+}
+
+ListOfLists.propTypes = {
+  lists: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  currentList: PropTypes.number
 }
 
 export default ListOfLists
