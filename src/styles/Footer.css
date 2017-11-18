@@ -1,0 +1,14 @@
+.Footer {
+  height: 40px;
+  position: fixed;
+  bottom: 0px;
+  padding-left: 10px;
+  background-color: #7b8283;
+  border-top: 3px white solid;
+  width: 100%;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 10px;
+}
