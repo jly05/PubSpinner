@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../../styles/Navbar.css'
-import { Icon } from 'semantic-ui-react'
+import Icon from 'react-fontawesome'
 
 class Navbar extends Component {
   render () {
