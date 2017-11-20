@@ -5,9 +5,9 @@
   border-bottom: 3px white solid;
 }
 
-.appName {
-  color: #fff;
+.title {
   float: right;
+  color: #fff;
   font-size: 2em;
   line-height: 2em;
 }

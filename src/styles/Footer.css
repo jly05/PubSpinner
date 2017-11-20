@@ -1,5 +1,5 @@
 .Footer {
-  height: 40px;
+  height: 50px;
   position: fixed;
   bottom: 0px;
   padding-left: 10px;
@@ -10,5 +10,14 @@
 
 .copyright {
   position: absolute;
-  bottom: 10px;
+  bottom: 18px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.links {
+  display: inline-block;
+  float: right;
+  padding-right: 20px;
+  margin-top: 9px;
 }
