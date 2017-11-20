@@ -3,6 +3,34 @@
   text-align: center;
 }
 
+/* Spin Box */
+
+.spinContainer {
+  display: inline-block;
+  width: 20%;
+  min-width: 200px;
+  background-color: white;
+  border: 5px solid black;
+}
+
+.spinItem {
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  padding: 8px;
+}
+
+.chosen {
+  background-color: #7b8283;
+  color: white;
+}
+
+.higlight {
+  background-color: #7b8283;
+  color: white;
+}
+
+/* Button */
+
 .spinBtn {
   margin: 50px;
   padding:  10px;
