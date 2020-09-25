@@ -10,9 +10,11 @@ const Spinner = ({ pubs, isSpinning, setSpinning, isEditing }) => {
 
         let pList = Object.values(pubs)
         let x = 0
+        let next = current
 
         while (x < 20) {
-            setCurrent(getNextPub(pList, current))
+            next = getNextPub(pList, next)
+            setCurrent(next)
             await sleep(100)
             x++
         }
