@@ -27,6 +27,7 @@ const TopBar = () => {
                     href="https://github.com/jamie-lynch/pub-spinner"
                     color="inherit"
                     target="_blank"
+                    aria-label="Pub Spinner GitHub"
                     rel="noopener noreferrer"
                 >
                     <GitHubIcon />
