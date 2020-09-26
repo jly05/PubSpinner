@@ -17,6 +17,7 @@
         "build": "yarn build:css && react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
+        "lighthouse": "yarn lhci autorun",
         "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
         "watch:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
     },
@@ -38,6 +39,7 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "2.x",
         "@typescript-eslint/parser": "2.x",
+        "@lhci/cli": "^0.5.0",
         "autoprefixer": "^9.8.0",
         "postcss-cli": "^7.1.1",
         "prettier": "2.0.5",

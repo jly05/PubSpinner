@@ -101,10 +101,18 @@ const PubEdit = ({
                     </Typography>
                 </div>
                 <div>
-                    <IconButton onClick={onEdit} disabled={disabled}>
+                    <IconButton
+                        onClick={onEdit}
+                        disabled={disabled}
+                        aria-label={`Edit button #${index + 1}`}
+                    >
                         <EditIcon />
                     </IconButton>
-                    <IconButton onClick={onDelete} disabled={disabled}>
+                    <IconButton
+                        onClick={onDelete}
+                        disabled={disabled}
+                        aria-label={`Delete button #${index + 1}`}
+                    >
                         <DeleteIcon />
                     </IconButton>
                 </div>
