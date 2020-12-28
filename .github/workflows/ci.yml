@@ -8,7 +8,7 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                 node-version: '14'
-            - run: yarn --frozen-lockfile && yarn --global @lhci/cli@0.4.x
+            - run: yarn --frozen-lockfile && yarn install --global @lhci/cli@0.4.x
             - run: yarn build
             - run: lhci autorun
     lint:
